@@ -12,7 +12,15 @@ int usage() {
 		 "-c, --celsius - Sets the base unit as Celsius\n"
 		 "Length:\n"
 		 "-ft, --feet - Sets the base unit as feet\n"
-		 "-in, --inches - Sets the base unit as inches\n");
+		 "-in, --inches - Sets the base unit as inches\n"
+		 "Output Units:\n"
+		 "Temprature:\n"
+		 "-f, --fahrenheit - Sets the output unit as fahrenheit\n"
+		 "-c, --celsius - Sets the base output as Celsius\n"
+		 "Length:\n"
+		 "-ft, --feet - Sets the base output as feet\n"
+		 "-in, --inches - Sets the base output as inches\n"
+		 );
 	return 0;
 }
 
@@ -24,10 +32,12 @@ int main(int argc, char *argv[]) {
 	else if (strcmp(argv[1], "-f") == 0 || strcmp(argv[1], "--fahrenheit") == 0) {
 		if (strcmp(argv[3], "-c") == 0 || strcmp(argv[3], "--celsius") == 0) {
 			FahrenheitCelsius(converted, 1);
-		}
+        }
 	}
-	else if (strcmp(argv[1], "-f") == 0 || strcmp(argv[1], "--fahrenheit") == 0) {
-	    
+	else if (strcmp(argv[1], "-c") == 0 || strcmp(argv[1], "--celsius") == 0) {
+		if (strcmp(argv[3], "-f") == 0 || strcmp(argv[3], "--fahrenheit") == 0) {
+			FahrenheitCelsius(converted, 0);
+        }   
 	}
 	return 0;
 }
